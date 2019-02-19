@@ -110,7 +110,7 @@ function showHistoricalEvent() {
   var historicalEvent = document.getElementById('historicalEvent');
   var historicalEventTime = document.getElementById('time');
 
-  historicalEvent.innerHTML = "<div>SpaceX History - <a href='" + allHistory[randomHistoricalEvent].links.article + "' target='_blank'>" + allHistory[randomHistoricalEvent].title + "</a>" + historicalDate + "</div><div>" +  historicalDetails + "</div>";
+  historicalEvent.innerHTML = "<div><b> Historcal Events: </b> <a href='" + allHistory[randomHistoricalEvent].links.article + "' target='_blank'>" + allHistory[randomHistoricalEvent].title + "</a>" + historicalDate + "</div><div>" +  historicalDetails + "</div>";
 
 
 
