@@ -53,7 +53,7 @@ h3 {
 }
 
 p {
-	font-family: Arial, sans-serif;
+	font-family: Lato, Arial, sans-serif;
 	font-weight: normal;
 	margin-bottom: 1em;
 }
@@ -88,7 +88,7 @@ a:focus {
 /* BODY */
 
 body {
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: Lato, Arial, sans-serif;
 	margin: 0 auto;
 	padding: 20px 0 0 0;
     max-width: 1200px;
@@ -360,7 +360,7 @@ header div#historicalEvent {
     line-height: 1.3em;
     text-align: center;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 header div#historicalEvent a {
@@ -459,14 +459,14 @@ div.mission_date div {
 
 div.details {
   
-    width: 100%;
+    width: 96%;
     font-size: 0.6em;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: Lato, Arial, sans-serif;
     margin: 20px 0;
     padding:20px;
     line-height: 1.5;
     background-color: #314A59;
-    border-radius: 15px;
+    border: 1px solid #f5f1f4;
 
 }
 
@@ -703,6 +703,39 @@ div.contact_information span {
 
 /* ARTICLE */
 
+#article div.ingress {
+    padding: 20px;
+    background-color: #314A59;
+    font-weight: bold;
+    line-height: 1.5em;
+}
+
+#article .article_content .image_wrapper {
+    width: 100%;
+    padding: 30px 0;
+    text-align: center;
+}
+
+
+#article .image_wrapper img:first-of-type {
+    border: 5px solid #f5f1f4;
+}
+
+
+#article .article_content div.article_image_caption {
+    background-color: #1c71a6;
+    color: #f5f1f4;
+    padding: 10px;
+    font-size: 16px;
+}
+
+#article .article_content h4 {
+    color: #f5f1f4;
+    font-size: 2em;
+    margin: 20px 0;
+}
+
+
 #article .some_sharing {
     margin: 0;
     text-align: right;
@@ -728,26 +761,6 @@ div.contact_information span {
 
 #article .some_sharing img#twitter_share:hover {
     content: url(../img/twitter_hover.png);
-}
-
-#article .article_content .image_wrapper {
-    width: 100%;
-    padding: 30px 0;
-
-    -webkit-display: flex;
-	-ms-display: flex;
-	display: flex;
-
-	-webkit-flex-direction: row;
-	-ms-flex-direction: row;
-	flex-direction: row;
-
-	justify-content: space-evenly;
-}
-
-#article .article_content img {
-    width: 290px;
-    border: 5px solid #f5f1f4;
 }
 
 

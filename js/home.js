@@ -1,8 +1,8 @@
-var latestLaunch = [];
+/* HOME JAVASCRIPT FILE */
+
 var launchContainer = document.getElementById('launchContainer');
 
-
-  
+// Load next upcoming launch
 loadNext = function () {
     // Get JSOn and populate launches
 
@@ -21,8 +21,7 @@ loadNext = function () {
     }).catch(function(err) {
         console.log("Error getting JSON for next launch: "+err.message);      
     });
-}
-
+};
 
 // Load JSON data and populate HTML when all JSON is loaded
 loadData(loadNext);

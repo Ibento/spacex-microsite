@@ -1,29 +1,26 @@
+/* CONTACT JAVASCRIPT FILE */
+
 var submitButton = document.getElementById('submitContact');
 submitButton.addEventListener('click', function(e) {
     if (validateForm()) {
+        // subit form if all inputs are valid
         e.submit();
     }    
     else
-    {
+    {   
+        // prevent submit of the form if not valid
         e.preventDefault();
     }
 });
-
-
-
 
 var validateForm = function (e) {
     
     // Boolean that is set to false if any of the fields are invalid
     var isFormValid = true;
 
-
-
     // Variable holders for first name
-    var fullName = document.getElementById('fullName');
+    var fullName = document.getElementById('full_name');
     var fullNameError = document.getElementById('fullnameError');
-   
-
    
     // Check if first name is valid
     if (fullName.value === '') {
@@ -65,5 +62,5 @@ var validateForm = function (e) {
     }
   
     return isFormValid;
-}
+};
 

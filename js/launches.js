@@ -1,11 +1,14 @@
-
+/* LAUNCHES JAVASCRIPT FILE */
 
 var upcomingLaunchesContainer = document.getElementById('upcomingLaunchesContainer');
 var pastLaunchesContainer = document.getElementById('pastLaunchesContainer');
 
+// index offset for loading more than 5
 var futureLaunchesRendered = 0;
 var pastLaunchesRendered  = 0;
 
+
+// Load next 5 upcoming launches
 loadUpcoming = function () {
     
     // Get JSOn and populate launches
@@ -21,7 +24,6 @@ loadUpcoming = function () {
         while (futureLaunchesRendered < launchOffset) {
             populateLaunch(launches[futureLaunchesRendered], upcomingLaunchesContainer);
             futureLaunchesRendered = futureLaunchesRendered + 1;
-        
         }
 
         // LOAD MORE BUTTON
@@ -39,11 +41,10 @@ loadUpcoming = function () {
         console.log("Error getting JSON for upcoming launches: "+err.message);      
     });
 
-}
+};
 
 
-
-
+// Load next 5 past launches
 loadPast = function () {
     
     // Get JSOn and populate launches
@@ -79,7 +80,7 @@ loadPast = function () {
         console.log("Error getting JSON for upcoming launches: " +err.message);      
     });
 
-}
+};
 
 
 // Load JSON data and populate HTML when all JSON is loaded

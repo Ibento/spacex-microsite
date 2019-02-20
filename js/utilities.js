@@ -1,7 +1,7 @@
+/* ASORTED UTILITIES JAVASCRIPT FILE */
 
-/* Utilities */
 
-function formatDate(date) {
+var formatDate = function (date) {
   var monthNames = [
     "January", "February", "March",
     "April", "May", "June", "July",
@@ -21,11 +21,11 @@ function formatDate(date) {
   hours = (hours < 10) ? "0" + hours : hours;
 
   return '<div>' + day + '. ' + monthNames[monthIndex] + ' ' + year + '<br>' + hours + ':' + minutes + ' (UTC)</div>';
-}
+};
 
 
 
-function formatDatePanel(date) {
+var formatDatePanel = function (date) {
   var monthNames = [
     "January", "February", "March",
     "April", "May", "June", "July",
@@ -39,17 +39,17 @@ function formatDatePanel(date) {
   var year = date.getFullYear();
 
   return '<span> (' + day + '. ' + monthNames[monthIndex] + ' ' + year + ")</span>";
-}
+};
 
 
 // adding some periods to launch  price
-function numberWithPeriods(num) {
+var numberWithPeriods = function(num) {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-}
+};
 
 
 
-function toggleInfo(currentButton) {
+var toggleInfo = function (currentButton) {
     return function () {
         
         var rocket_info = document.getElementById("rocket_" + currentButton.id);
@@ -70,27 +70,29 @@ function toggleInfo(currentButton) {
             launchpad_info.setAttribute("style", "display:none");
             currentButton.nextSibling.innerHTML = "MORE<br>INFORMATION";
         }
-    }
-}
+
+        rocket_info.scrollIntoView();
+    };
+};
 
 
+var scrollFunction = function () {
 
-
-
-window.addEventListener('scroll', scrollFunction);
-var upButton = document.getElementById('upButton');
-upButton.addEventListener('click', toTheTop);
-
-function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     document.getElementById("upButton").style.display = "block";
   } else {
     document.getElementById("upButton").style.display = "none";
   }
-}
+};
 
 // When user clicks on the button, scroll to the top of the document
-function toTheTop() {
+var toTheTop = function () {
+
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}
+};
+
+window.addEventListener('scroll', scrollFunction);
+var upButton = document.getElementById('upButton');
+upButton.addEventListener('click', toTheTop);
+

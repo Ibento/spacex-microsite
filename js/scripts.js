@@ -1,13 +1,13 @@
+/* MAIN JAVASCRIPT FILE */
 
-// Holder arrays for rockets and launch pads
+// Holder arrays for rockets, launch pads and historical events
 var allRockets = [];
 var allLaunchPads = [];
 var allHistory = [];
-var historicalEventTicker = 0;
 
 
 // General function for gettin JSON from an URL
-function get(url) {
+var get = function(url) {
   // Return a new promise
   return new Promise(function(resolve, reject) {
     // Set a XHR object and open a connection
@@ -33,16 +33,16 @@ function get(url) {
 
     req.send();
   }); 
-}
+};
 
 // Get the JSON from the SpaceX API
-function getJSON(url) {
+var getJSON = function (url) {
   return get(url).then(JSON.parse);
   
-}
+};
 
-
-function loadData(callback) {
+// Preload data with callback
+var loadData = function (callback) {
   // Get JSON for all rockets
   getJSON("https://api.spacexdata.com/v3/rockets").then( function(rockets) {
 
@@ -54,10 +54,11 @@ function loadData(callback) {
 
     console.log("Error getting JSON for all rockets");      
   });
-}
+};
 
 
-function getHistory(callback) {
+// Preload data for historical events
+var getHistory = function (callback) {
     // Get JSON for all launch sites
     getJSON("https://api.spacexdata.com/v3/history").then(function(history) {
 
@@ -69,9 +70,10 @@ function getHistory(callback) {
     }).catch(function(err) {
       console.log("Error getting JSON for all historical events");      
     });
-}
+};
 
-function getLaunchPads(callback) {
+// Preload data for launch pads
+var getLaunchPads = function (callback) {
   
   // Get JSON for all launch sites
   getJSON("https://api.spacexdata.com/v3/launchpads").then(function(sites) {
@@ -83,7 +85,7 @@ function getLaunchPads(callback) {
   }).catch(function(err) {
     console.log("Error getting JSON for all launch pads");      
   });
-}
+};
 
 // Get history JSON and show a new historical event every 7 seconds
 getHistory(function() {
@@ -93,7 +95,7 @@ getHistory(function() {
 });
   
 // Show historical event in top bar
-function showHistoricalEvent() {
+var showHistoricalEvent = function () {
 
   var randomHistoricalEvent = Math.floor(Math.random() * allHistory.length); 
 
@@ -112,21 +114,17 @@ function showHistoricalEvent() {
 
   historicalEvent.innerHTML = "<div><b> Historcal Events: </b> <a href='" + allHistory[randomHistoricalEvent].links.article + "' target='_blank'>" + allHistory[randomHistoricalEvent].title + "</a>" + historicalDate + "</div><div>" +  historicalDetails + "</div>";
 
-
-
-}
-
-
+};
 
 // Populates HTML and dynamic data in myLaunchContainer for one myLaunch
-function populateLaunch(myLaunch, myLaunchContainer) {
+var populateLaunch = function (myLaunch, myLaunchContainer) {
 
-  // Find rocket and launch pad for current launch
+  // Find rocket and launch pad for current launch with ES6 syntax
   var myRocket = allRockets.find(x => x.rocket_id === myLaunch.rocket.rocket_id);
   var myLaunchPad = allLaunchPads.find(x => x.site_id === myLaunch.launch_site.site_id);
 
   
-  // Create and append elements for a launch
+  /* Create and append elements for a launch */
 
   // inner_block
   var contentBlockDiv = document.createElement('div');
@@ -259,7 +257,7 @@ function populateLaunch(myLaunch, myLaunchContainer) {
   myImages = myRocket.flickr_images;
 
   // show first two images from flickr
-  for (let i = 0;i < myImages.length; i++) {
+  for (var i = 0;i < myImages.length; i++) {
 
       // Thumbnail
       var rocketThumbLink = document.createElement('a');
@@ -336,12 +334,12 @@ function populateLaunch(myLaunch, myLaunchContainer) {
     launchSiteBlockDiv.append(descriptionDiv);
 
 
-} // End populate_launch
+}; // End populate_launch
 
 
 
 // Populates HTML and dynamic data in myRocketsContainer for myRocket
-function populateRockets(myRocket, myRocketsContainer) {
+var populateRockets = function (myRocket, myRocketsContainer) {
 
   
   // Create and append elements for a rocket
@@ -395,7 +393,7 @@ function populateRockets(myRocket, myRocketsContainer) {
   myImages = myRocket.flickr_images;
 
   // show first two images from flickr
-  for (let i = 0;i < myImages.length; i++) {
+  for (var i = 0;i < myImages.length; i++) {
 
       // Thumbnail
       var rocketThumbLink = document.createElement('a');
@@ -427,14 +425,14 @@ function populateRockets(myRocket, myRocketsContainer) {
   }
 
 
-} // End populate_rocket
+}; // End populate_rocket
 
 
 // Populates HTML and dynamic data in myLaunchPadContainer for myLaunchPad
-function populateLaunchPad(myLaunchPad, myLaunchPadContainer) {
+var populateLaunchPad = function (myLaunchPad, myLaunchPadContainer) {
 
   
-  // Create and append elements for a rocket
+  // Create and append elements for a launch pad
 
 
     /* LAUNCH PAD INFO BLOCK */
@@ -485,5 +483,5 @@ function populateLaunchPad(myLaunchPad, myLaunchPadContainer) {
 
 
 
-} // End populate_launch
+}; // End populate_launch
 
