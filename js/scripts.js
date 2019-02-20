@@ -110,7 +110,7 @@ var showHistoricalEvent = function () {
   var historicalEvent = document.getElementById('historicalEvent');
   var historicalEventTime = document.getElementById('time');
 
-  historicalEvent.innerHTML = "<div><a href='" + allHistory[randomHistoricalEvent].links.article + "' target='_blank'>" + allHistory[randomHistoricalEvent].title + "</a>" + historicalDate + "</div><div>" +  historicalDetails + "</div>";
+  historicalEvent.innerHTML = "<div><a href='" + allHistory[randomHistoricalEvent].links.article + "' target='_blank'>" + allHistory[randomHistoricalEvent].title + "</a> - " + historicalDate  + " </div><div>" +  historicalDetails + "</div>";
 
 };
 

@@ -38,7 +38,7 @@ var formatDatePanel = function (date) {
   var monthIndex = date.getUTCMonth();
   var year = date.getFullYear();
 
-  return '<span> (' + day + '. ' + monthNames[monthIndex] + ' ' + year + ")</span>";
+  return '<span>' + day + '. ' + monthNames[monthIndex] + ' ' + year + "</span>";
 };
 
 
