@@ -103,16 +103,14 @@ var showHistoricalEvent = function () {
   historicalDate = formatDatePanel(historicalDate);
 
 
-  // Sorten long strings to max 150 chars
-  var historicalDetails = allHistory[randomHistoricalEvent].details.substr(0, 100);
-  if (allHistory[randomHistoricalEvent].details.length >= 100) {
-    historicalDetails + " ...";
-  }
+  // Sorten long strings to max 200 chars
+  var historicalDetails = allHistory[randomHistoricalEvent].details.substr(0, 200);
+
 
   var historicalEvent = document.getElementById('historicalEvent');
   var historicalEventTime = document.getElementById('time');
 
-  historicalEvent.innerHTML = "<div><b> Historcal Events: </b> <a href='" + allHistory[randomHistoricalEvent].links.article + "' target='_blank'>" + allHistory[randomHistoricalEvent].title + "</a>" + historicalDate + "</div><div>" +  historicalDetails + "</div>";
+  historicalEvent.innerHTML = "<div><a href='" + allHistory[randomHistoricalEvent].links.article + "' target='_blank'>" + allHistory[randomHistoricalEvent].title + "</a>" + historicalDate + "</div><div>" +  historicalDetails + "</div>";
 
 };
 

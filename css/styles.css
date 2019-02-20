@@ -31,6 +31,15 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockqu
     display: table;
 }
 
+header,
+main,
+section,
+footer {
+    margin: 0;
+    padding: 1px; /* tweaked from 0 to 1px */
+}
+
+
 h1 {
 
 }
@@ -121,7 +130,7 @@ img.twitter:hover {
     background: rgba(28,113,155,0.4);
     border: 10px solid #314A59;
     border-radius: 10px;
-    margin-top: 30px;
+    margin-top: 10px;
     padding: 40px;
 }
 
@@ -267,39 +276,18 @@ header div.socialmedia img {
 }
 
 
-
-header div.site_title {
-    clear: both;
+header div.site_logo  {
+  
     text-align: center;
-    padding: 50px 0px;
-    border-radius: 500px;
+    display: block;
+    padding: 100px 0;
+    height: 400px;
 
 }
-
-header div.site_title div.title {
-    width: 100%;
-    font-size: 80pt;
-    color: #00ff00;
-    font-family: acier-bat-outline, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 0.9em;
+header div.site_logo img {
+    width: 70%;
 }
 
-header div.site_title hr {
-    width: 55%;
-    border: 2px solid #00ff00;
-    margin-top: 0;
-    padding: 0;
-}
-
-header div.site_title div.subtitle {
-    font-family: acier-bat-solid, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 25pt;
-    color: #f5f1f4;
-}
 
 header div.main_menu {
     padding: 10px 0px;
@@ -346,9 +334,11 @@ header div.news_panel {
     width: 100%;
     border: 5px solid #7DDB33;
     border-radius: 10px;
-    background: rgba(28,113,155,0.5);
+    background: rgba(0,0,0,0.5);
     color: #7DDB33;
+    margin: auto;
     padding: 10px;
+ 
 }
 
 
@@ -359,13 +349,20 @@ header div#historicalEvent {
     color: #f5f1f4;
     line-height: 1.3em;
     text-align: center;
-    text-transform: uppercase;
-    font-size: 18px;
+    
+    font-size: 16px;
 }
+
+header div#historicalEvent div:first-of-type {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+
+}
+
 
 header div#historicalEvent a {
     font-weight: bold;
-    margin-bottom: 10px;
+
     display: inline-block;
 }
 
@@ -466,7 +463,7 @@ div.details {
     padding:20px;
     line-height: 1.5;
     background-color: #314A59;
-    border: 1px solid #f5f1f4;
+    border: 3px dashed #f5f1f4;
 
 }
 
@@ -610,6 +607,10 @@ section.content_block div.caption h3 {
 
 #contact h3 {
     text-align: center;
+}
+
+#contact fieldset {
+    border: 0;
 }
 
 div.contact_information {
@@ -883,6 +884,15 @@ footer div.right a img {
         width: 960px;
     }
 
+    header div.site_logo  {
+        height: 300px;
+    }
+    
+    header div.site_logo img {
+        width: 80%;
+    }
+
+
     .inner_block {
  
         border-radius: 10px;
@@ -926,7 +936,7 @@ footer div.right a img {
     }
 
     .outer_block {
-        padding: 30px 0;
+        padding: 5px;
         font-size: 0.8em !important;
     }
 
@@ -1000,21 +1010,19 @@ footer div.right a img {
 
     }
 
+    
+
     header div.socialmedia {
         display: none;
     }
 
-    header div.site_title div.title {
-        font-size: 3.5em !important;
+    header div.site_logo img {
+        width: 100%;
     }
 
-
-    header div.site_title hr {
-        width: 90%;
-    }
-
-    header div.site_title div.subtitle {
-        font-size: 1em !important;
+    header div.site_logo {
+        padding: 40px 0;
+        height: 160px;
     }
 
     header div#historicalEvent {
@@ -1201,9 +1209,6 @@ footer div.right a img {
         font-size: 25pt;
     }
 
-    header div.site_title div.title {
-        font-size: 2.5em !important;
-    }
 
     .inner_block {
         border-radius: 10px;
