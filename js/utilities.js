@@ -75,6 +75,34 @@ var toggleInfo = function (currentButton) {
     };
 };
 
+// Change image element src to newSrc
+var changeImage = function (element, newSrc) {
+  var hoverElement = element;
+  console.log(hoverElement.src);
+  hoverElement.src = newSrc;
+  console.log(hoverElement.src);
+  
+};
+
+// get elements with hover class
+var hoverElements = document.getElementsByClassName('hover');
+
+// Change images for social links on mouse over
+for (var i = 0;i < hoverElements.length; i++) {
+  
+    hoverElements[i].addEventListener('mouseover', function(e) {
+      var mouseoverElement = e.srcElement;
+      changeImage(mouseoverElement, "img/" + mouseoverElement.classList[0] + "_hover.png");
+    });
+}
+
+// Change images for social links on mouse out
+for (var i = 0;i < hoverElements.length; i++) {
+  hoverElements[i].addEventListener('mouseout', function(e) {
+    var mouseoutElement = e.srcElement;
+    changeImage(mouseoutElement, "img/" + mouseoutElement.classList[0] + ".png");
+  });
+}
 
 var scrollFunction = function () {
 
