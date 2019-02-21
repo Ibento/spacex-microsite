@@ -1043,7 +1043,8 @@ footer div.right a img {
     header div.main_menu ul {
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content:space-around;        
+        justify-content:space-between;
+        padding: 0 20px;        
     }
 
     header div.main_menu ul li h1 {
