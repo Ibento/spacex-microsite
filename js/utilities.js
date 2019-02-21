@@ -71,7 +71,7 @@ var toggleInfo = function (currentButton) {
             currentButton.nextSibling.innerHTML = "MORE<br>INFORMATION";
         }
 
-        rocket_info.scrollIntoView();
+    
     };
 };
 

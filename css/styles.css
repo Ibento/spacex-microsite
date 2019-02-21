@@ -76,7 +76,7 @@ a {
     display: none;
     position: fixed;
     bottom: 20px; 
-    right: 50px;
+    right: 20px;
     z-index: 99; 
     outline: none;
     cursor: pointer; 
@@ -148,7 +148,7 @@ body {
 
 .minus_button,
 .plus_button {
-    width:35px;
+    width:50px;
     margin: 0 10px 0 0;
     display: inline-block;
     cursor: pointer;
@@ -242,8 +242,11 @@ header {
 
 }
 
+
+
 header div.logo {
     float:left;
+    width: 25%;
 }
 
 header div.logo img {
@@ -252,11 +255,14 @@ header div.logo img {
 
 header div.socialmedia {
     float: right;
+    text-align: right;
+    margin-right: 20px;
+    width: 20%;
 }
 
 
 header div.socialmedia img {
-    width: 40px;
+    width: 35px;
 }
 
 
@@ -265,7 +271,7 @@ header div.site_logo  {
     text-align: center;
     display: block;
     padding: 100px 0;
-    height: 350px;
+    height: 400px;
 
 }
 header div.site_logo img {
@@ -275,9 +281,15 @@ header div.site_logo img {
 
 header div.main_menu {
     padding: 10px 0px;
+
 }
 
 header div.main_menu ul {
+
+    padding: 10px;
+    background-color: rgba(50, 50, 50, 0.5);
+    border: 5px solid #314A59;
+    border-radius: 10px;
     list-style-type: none;
 	-webkit-display: flex;
 	-ms-display: flex;
@@ -290,9 +302,13 @@ header div.main_menu ul {
 	justify-content: space-evenly;
 } 
 
+header div.main_menu ul {
+
+}
+
 header h1 {
     color: #1c71a6;
-    font-family: acier-bat-solid, sans-serif;
+    font-family: acier-bat-outline, sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 45pt;
@@ -304,6 +320,7 @@ header h1:hover {
     filter: drop-shadow(0 0 0.75rem #f5f1f4);
 }
 
+
 header div.main_menu ul li.active h1:hover {
     filter: none;
 }
@@ -314,39 +331,27 @@ header div.main_menu ul li.active h1 {
     font-family: acier-bat-solid, sans-serif;
 }
 
-header div.news_panel {
-    width: 100%;
-    border: 5px solid #7DDB33;
-    border-radius: 10px;
-    background: rgba(0,0,0,0.5);
-    color: #7DDB33;
-    margin: auto;
-    padding: 10px;
- 
+header div#search {
+   
+    margin: 20px 0px;
+}
+header div#search input {
+    outline: none;
+
 }
 
-header div#historicalEvent {
-    width: 100%;
-    float:left;
+header div#search input[type="text"] {
+    width:100%;
+    background-color: rgba(0, 0,0,0.5);
     color: #f5f1f4;
-    line-height: 1.3em;
-    text-align: center;
-    padding: 0 100px;
-    font-size: 16px;
-}
-
-header div#historicalEvent div:first-of-type {
-    text-transform: uppercase;
-    margin-bottom: 10px;
-
-}
-
-
-header div#historicalEvent a {
-    font-weight: bold;
-
+    font-size: 26px;
     display: inline-block;
+    text-transform: uppercase;
+    padding: 10px;
+    border: 5px solid #00ff00;
+    border-radius: 5px
 }
+
 
 /* LAUNCH BLOCKS */
 
@@ -375,13 +380,13 @@ div.mission_info {
 
  div.launch_image {
     background: #040813;
-
+    width: 60%;
     height: 100%;
     display: inline;
 }
 
 div.launch_image img.launch_image {
-    width: 160px;
+    width: 100%;
     border: 10px solid #f5f1f4;
 
 }
@@ -438,7 +443,7 @@ div.mission_date div {
 
 div.details {
   
-    width: 96%;
+    width: 100%;
     font-size: 0.6em;
     font-family: Lato, Arial, sans-serif;
     margin: 20px 0;
@@ -455,14 +460,17 @@ div.info_button {
 
 }
 
-div.info_button div.more_information {
+div.more_info_wrapper {
+    margin-top: 20px;    
+}
+
+div.detailed_info div.more_information {
     display: inline-block;
-    
     font-family: acier-bat-solid, sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 14pt;
-   
+    font-size: 20pt;
+    width: 30%;
 }
 
 
@@ -583,6 +591,9 @@ section.content_block div.caption h3 {
     padding-bottom: 10px;
 }
 
+#searchResultsContainer {
+    display: none;
+}
 
 
 /* CONTACT US  */
@@ -761,10 +772,14 @@ footer {
 
 	-webkit-flex-direction: row;
 	-ms-flex-direction: row;
-	flex-direction: row;
+    flex-direction: row;
+
+    flex-wrap: wrap;
 
 	justify-content: space-evenly;
 }
+
+
 
 footer div.left ul {
 
@@ -787,13 +802,17 @@ footer div.left ul {
 }
 
 footer div.left {
-    width: 400px;
+    width: 30%;
     padding-top: 60px;
 }
 
 footer div.left ul li {
     width: 50%;
     height: 50px;
+}
+
+footer div.left ul li h4:hover {
+    color: #f5f1f4;
 }
 
 footer h4 {
@@ -810,7 +829,7 @@ footer div.left ul li.active h4 {
 }
 
 footer div.center  {
-    width: 400px;
+    width: 30%;
     text-align: center;
 }
 
@@ -841,8 +860,8 @@ footer div.center div.address {
 }
 
 footer div.right {
-    width: 400px;
     text-align: right;
+    width: 30%;
 }
 
 footer div.right {
@@ -857,6 +876,8 @@ footer div.right {
 footer div.right a img {
     width: 50px;
 }
+
+
 
 
 /* MEDIA QUERIES */
@@ -989,12 +1010,10 @@ footer div.right a img {
     }
 
     header div.logo img {
-        width: 70%;
+        width: 50%;
         margin-left: 30px; // because of design
 
     }
-
-    
 
     header div.socialmedia {
         display: none;
@@ -1028,12 +1047,20 @@ footer div.right a img {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content:space-between;
-        padding: 0 20px;        
+    
     }
 
     header div.main_menu ul li h1 {
         font-size: 27pt;
     }
+
+
+    header div#search input[type="text"] {
+
+        font-size: 14px;
+     
+    }
+
 
     section.content_block div.caption h3 {
         font-size: 2em;
@@ -1149,7 +1176,7 @@ footer div.right a img {
         padding: 0;
     }
 
-    div.launch_image img.launch_image {
+    div.launch_image {
         width: 100%;
     }
 
@@ -1164,8 +1191,8 @@ footer div.right a img {
     footer {
         flex-direction: column;
     }
-    footer div {
-        width: 375px !important;
+
+    footer div {        
         text-align: center;
     }
 
@@ -1181,6 +1208,15 @@ footer div.right a img {
         padding-top:0px;
     }
 
+    footer div.news_panel {
+        padding: 20px;
+
+    }
+
+    footer div.news_panel div#historicalEvent {
+        padding: 0;
+    }
+
 }
 
 /* iPhone SE - 320px width */
@@ -1191,7 +1227,8 @@ footer div.right a img {
     }
 
     header div.main_menu ul li h1 {
-        font-size: 25pt;
+        font-size: 20pt;
+        padding: 10px 0;
     }
 
 
@@ -1228,12 +1265,14 @@ footer div.right a img {
         font-size: 20pt;
     }
 
-    footer div {
-        width: 320px !important;
-    }
 
     footer div.center div.logo img {
         width: 200px;
+    }
+
+
+    footer div#historicalEvent {
+        font-size: 14px;
     }
 
   

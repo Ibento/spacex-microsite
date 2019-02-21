@@ -2,10 +2,15 @@
 
 var upcomingLaunchesContainer = document.getElementById('upcomingLaunchesContainer');
 var pastLaunchesContainer = document.getElementById('pastLaunchesContainer');
+var searchResultsContainer = document.getElementById('searchResultsContainer');
 
 // index offset for loading more than 5
 var futureLaunchesRendered = 0;
 var pastLaunchesRendered  = 0;
+
+// container array for all launches for searching through
+var allLaunches = [];
+
 
 
 // Load next 5 upcoming launches
@@ -83,7 +88,65 @@ loadPast = function () {
 };
 
 
+// Preload data for launches and add event listener for search function
+var loadAllLaunches = function () {
+  
+    // Get JSON for all launch sites
+    getJSON("https://api.spacexdata.com/v3/launches").then(function(launches) {
+
+        // Find the missions launch pad in the mySites array
+        allLaunches = launches;
+        
+        var searchInputElement = document.getElementById('search_input');
+      
+        searchInputElement.addEventListener('input', function () {
+           
+            //  get search value from input
+            var searchVal = searchInputElement.value;
+
+            searchResultsContainer.innerHTML = "<h2>SEARCH RESULTS</h2>";
+
+            // check if search input is something
+            if (searchVal.length > 0) {
+
+                // filter search results from allLauches array
+                var searchResults =  allLaunches.filter( function(launch) {
+                    return launch.mission_name.toLowerCase().indexOf(searchVal.toLowerCase()) > -1;
+                });
+                
+                // Show results
+                if (searchResults.length > 0) {
+                    searchResultsContainer.style.display = 'block';
+        
+                    for (var i = 0; i < searchResults.length; i++) {
+                        populateLaunch(searchResults[i], searchResultsContainer);
+                    }
+                } else {
+                    // display if no search results
+                    searchResultsContainer.innerHTML = "<h2>NO RESULTS</h2>";
+                }
+    
+            } else {
+                // Hide searchResultsContainer if no input
+                searchResultsContainer.style.display = 'none';
+            }
+
+          
+        });
+    }).catch(function(err) {
+        console.log("Error getting JSON for all launches");      
+    });
+};
+
+
+
+
+var showSearchResults = function () {
+};
+  
+
+
 // Load JSON data and populate HTML when all JSON is loaded
 loadData(loadUpcoming);
 loadData(loadPast);
-
+loadData(loadAllLaunches);

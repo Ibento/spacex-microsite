@@ -57,20 +57,6 @@ var loadData = function (callback) {
 };
 
 
-// Preload data for historical events
-var getHistory = function (callback) {
-    // Get JSON for all launch sites
-    getJSON("https://api.spacexdata.com/v3/history").then(function(history) {
-
-      // Find the missions launch pad in the mySites array
-      allHistory = history;
-
-      callback();
-  
-    }).catch(function(err) {
-      console.log("Error getting JSON for all historical events");      
-    });
-};
 
 // Preload data for launch pads
 var getLaunchPads = function (callback) {
@@ -87,32 +73,9 @@ var getLaunchPads = function (callback) {
   });
 };
 
-// Get history JSON and show a new historical event every 7 seconds
-getHistory(function() {
-  showHistoricalEvent();
-  var t = setInterval(showHistoricalEvent, 7000);
-
-});
-  
-// Show historical event in top bar
-var showHistoricalEvent = function () {
-
-  var randomHistoricalEvent = Math.floor(Math.random() * allHistory.length); 
-
-  var historicalDate = new Date(allHistory[randomHistoricalEvent].event_date_utc);
-  historicalDate = formatDatePanel(historicalDate);
 
 
-  // Sorten long strings to max 200 chars
-  var historicalDetails = allHistory[randomHistoricalEvent].details.substr(0, 200);
-
-
-  var historicalEvent = document.getElementById('historicalEvent');
-  var historicalEventTime = document.getElementById('time');
-
-  historicalEvent.innerHTML = "<div><a href='" + allHistory[randomHistoricalEvent].links.article + "' target='_blank'>" + allHistory[randomHistoricalEvent].title + "</a> - " + historicalDate  + " </div><div>" +  historicalDetails + "</div>";
-
-};
+/* POPULATE FUNCTIONS */
 
 // Populates HTML and dynamic data in myLaunchContainer for one myLaunch
 var populateLaunch = function (myLaunch, myLaunchContainer) {
@@ -154,20 +117,7 @@ var populateLaunch = function (myLaunch, myLaunchContainer) {
   launchImageDiv.append(infoButtonDiv);
 
 
-  // plus button
-  var plusButton = document.createElement('img');
-  plusButton.src = "img/plusbutton.svg";
-  plusButton.alt = "Expand / Collapse";
-  plusButton.className = "plus_button";
-  plusButton.id = myLaunch.flight_number;
-  plusButton.addEventListener('click', toggleInfo(plusButton));
-  infoButtonDiv.append(plusButton);
 
-  // more_information 
-  var moreInformationDiv = document.createElement('div');
-  moreInformationDiv.innerHTML = "MORE<br> INFORMATION";
-  moreInformationDiv.className = "more_information"
-  infoButtonDiv.append(moreInformationDiv);
   
   // detailed_info
   var detailedInfoDiv = document.createElement('div');
@@ -205,6 +155,24 @@ var populateLaunch = function (myLaunch, myLaunchContainer) {
     detailedInfoDiv.append(detailsDiv);
   }
 
+  var moreInfoWrapper = document.createElement('div');
+  moreInfoWrapper.className = "more_info_wrapper";
+  detailedInfoDiv.append(moreInfoWrapper);
+
+  // plus button
+  var plusButton = document.createElement('img');
+  plusButton.src = "img/plusbutton.svg";
+  plusButton.alt = "Expand / Collapse";
+  plusButton.className = "plus_button";
+  plusButton.id = myLaunch.flight_number;
+  plusButton.addEventListener('click', toggleInfo(plusButton));
+  moreInfoWrapper.append(plusButton);
+
+  // more_information 
+  var moreInformationDiv = document.createElement('div');
+  moreInformationDiv.innerHTML = "MORE<br> INFORMATION";
+  moreInformationDiv.className = "more_information"
+  moreInfoWrapper.append(moreInformationDiv);
   
   
   /* ROCKET INFO BLOCK */
@@ -418,8 +386,6 @@ var populateRockets = function (myRocket, myRocketsContainer) {
       var imageCaption = document.createElement('p');
       imageCaption.innerHTML = "Rocket: <b> "+myRocket.rocket_name + "</b>";
       rocketImageLink.append(imageCaption);
-
-
   }
 
 
