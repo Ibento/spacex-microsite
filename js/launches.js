@@ -140,12 +140,6 @@ var loadAllLaunches = function () {
 
 
 
-
-var showSearchResults = function () {
-};
-  
-
-
 // Load JSON data and populate HTML when all JSON is loaded
 loadData(loadUpcoming);
 loadData(loadPast);

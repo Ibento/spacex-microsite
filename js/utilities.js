@@ -54,7 +54,7 @@ var toggleInfo = function (currentButton) {
         
         var rocket_info = document.getElementById("rocket_" + currentButton.id);
         var launchpad_info = document.getElementById("site_" + currentButton.id);
-        
+      
 
         if (currentButton.className === "plus_button") {
             currentButton.src = "img/minusbutton.svg";
