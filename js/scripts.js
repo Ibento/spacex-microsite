@@ -111,12 +111,11 @@ var populateLaunch = function (myLaunch, myLaunchContainer) {
   launchImage.className = "launch_image";
   launchImageDiv.append(launchImage);
 
+
   // info_button
   var infoButtonDiv = document.createElement('div');
   infoButtonDiv.className = "info_button";
   launchImageDiv.append(infoButtonDiv);
-
-
 
   
   // detailed_info
@@ -146,6 +145,23 @@ var populateLaunch = function (myLaunch, myLaunchContainer) {
   missionDateDiv.className = "mission_date";
   missionDateDiv.innerHTML = "<div>Launch Date</div>" + launchDate;
   missionInfoWrapperDiv.append(missionDateDiv);
+
+  var todayDate = new Date();
+  var tomorrowDate = new Date(todayDate);
+  tomorrowDate.setDate(todayDate.getDate()+1);
+  var missionDate = new Date(myLaunch.launch_date_utc);
+
+  console.log(tomorrowDate.toDateString());
+
+  if ((missionDate.toDateString() === tomorrowDate.toDateString()) || (missionDate.toDateString() === todayDate.toDateString())) {
+ 
+    var streamLink = document.createElement('a');
+    streamLink.href = "https://www.spacex.com/webcast";
+    streamLink.innerHTML = "Watch Live Now!";
+    streamLink.target = "_blank";
+    streamLink.style.color = "#d02929";
+    missionInfoWrapperDiv.append(streamLink);
+  }
 
   // details
   var detailsDiv = document.createElement('div');
