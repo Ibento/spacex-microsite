@@ -1,9 +1,11 @@
 /* CONTACT JAVASCRIPT FILE */
 
 var submitButton = document.getElementById('submitContact');
+
 submitButton.addEventListener('click', function(e) {
     if (validateForm()) {
-        // subit form if all inputs are valid
+        
+        // submit form if all inputs are valid
         e.submit();
     }    
     else

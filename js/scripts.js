@@ -1,12 +1,12 @@
 /* MAIN JAVASCRIPT FILE */
 
-// Holder arrays for rockets, launch pads and historical events
+// Public arrays for rockets, launch pads and historical events
 var allRockets = [];
 var allLaunchPads = [];
 var allHistory = [];
 
 
-// General function for gettin JSON from an URL
+// General function for getting JSON - Returns a promise
 var get = function(url) {
   // Return a new promise
   return new Promise(function(resolve, reject) {
@@ -35,7 +35,7 @@ var get = function(url) {
   }); 
 };
 
-// Get the JSON from the SpaceX API
+// Parse the JSON from the SpaceX API
 var getJSON = function (url) {
   return get(url).then(JSON.parse);
   
@@ -46,8 +46,10 @@ var loadData = function (callback) {
   // Get JSON for all rockets
   getJSON("https://api.spacexdata.com/v3/rockets").then( function(rockets) {
 
-    // Find the missions rocket in the rocket array
+    // Set global rocket array to all rockets
     allRockets = rockets;
+
+    // get all Launch pads async as well
     getLaunchPads(callback);
 
   }).catch(function(err) {
@@ -64,7 +66,7 @@ var getLaunchPads = function (callback) {
   // Get JSON for all launch sites
   getJSON("https://api.spacexdata.com/v3/launchpads").then(function(sites) {
 
-    // Find the missions launch pad in the mySites array
+    // Set global launch pad array to all launch pads
     allLaunchPads = sites;
     callback();
 

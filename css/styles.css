@@ -280,6 +280,8 @@ header div.site_logo img {
 
 header div.main_menu {
     padding: 10px 0px;
+    width: 80%;
+    margin: auto;
 
 }
 
@@ -310,7 +312,7 @@ header h1 {
     font-family: acier-bat-outline, sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 45pt;
+    font-size: 35pt;
 
 }
 
@@ -349,6 +351,10 @@ header div#search input[type="text"] {
     padding: 10px;
     border: 5px solid #00ff00;
     border-radius: 5px
+}
+
+header div#search input[type="text"]:hover {
+    filter: drop-shadow(0 0 0.75rem #005288);
 }
 
 div#searchDescription {
@@ -899,6 +905,9 @@ footer div.right a img {
         width: 80%;
     }
 
+    header div.main_menu ul li h1 {
+        font-size: 30px;
+    }
 
     .inner_block {
  
@@ -925,12 +934,6 @@ footer div.right a img {
         margin: auto;
 
     }   
-
-    header div.main_menu ul li h1 {
-        font-size: 40pt;
-    }
-
- 
 }
 
 /* iPad and other tables 800px width */
@@ -966,7 +969,7 @@ footer div.right a img {
 
 
     header div.main_menu ul li h1 {
-        font-size: 30pt;
+        font-size: 2em;
     }
 
     .info_block {
@@ -1051,9 +1054,12 @@ footer div.right a img {
         justify-content:space-between;
     
     }
+    header div.main_menu ul li {
+        padding: 10px 0;
+    }
 
     header div.main_menu ul li h1 {
-        font-size: 27pt;
+        font-size: 1.8em;
     }
 
 
@@ -1154,7 +1160,12 @@ footer div.right a img {
         width: 300px;
         margin: auto;
 
-    }   
+    }
+
+    #form_wrapper .float_container {
+        float: none;
+        width: 100%;
+    }
 
     footer h4 {
         font-size: 20pt;

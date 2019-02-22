@@ -99,8 +99,9 @@
         <h3>GET IN TOUCH WITH SPACEX</h3>
 
         <div id="form_wrapper">
-            <form action="contact.html" id="contact_form">
-                <fieldset>
+     
+            <form action="contact.html" id="contact_form" method="GET" enctype="text/plain">
+              <fieldset>
                   <label for="full_name">FULL NAME:</label>
                   <input type="text" name="full_name" id="full_name">
                   <span class="error" id="fullnameError">Please enter your name</span>
@@ -115,7 +116,7 @@
                 <div class="float_container">
                   <fieldset>
                     <label for="country">COUNTRY:</label>
-                    <select name="country" id="country" class="halfsize">
+                    <select name="body" id="country" class="halfsize">
 
                         <option value="AF">Afghanistan</option>
                         <option value="AX">Åland Islands</option>
@@ -381,20 +382,20 @@
                   </fieldset>
 
 
-                </div>
-                <fieldset>
-                  <label for="question">YOUR QUESTION?</label>
-                  <textarea name="question" id="question" cols="30" rows="10"></textarea>
-                  <span class="error" id="questionError">Please enter a valid question</span>
-                </fieldset>
-                
-                <div class="submit_wrapper">
-                    <input type="submit" id="submitContact" value="SEND QUESTION">
-                    
-                </div>
-            </form>
-        </div>
+              </div>
+              <fieldset>
+                <label for="question">YOUR QUESTION?</label>
+                <textarea name="question" id="question" cols="30" rows="10"></textarea>
+                <span class="error" id="questionError">Please enter a valid question</span>
+              </fieldset>
+              
+              <div class="submit_wrapper">
+                  <input type="submit" id="submitContact" value="SEND QUESTION">
+              </div>
 
+             
+          </form>
+      </div>
     </section>
 
 
